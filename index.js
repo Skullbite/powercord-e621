@@ -3,9 +3,7 @@ const { get } = require('powercord/http')
 
 module.exports = class e621 extends Plugin {
     startPlugin() {
-        const userAgent = this.settings.get("headers", "Powercord/1.0 (<e621username>)")
-        const nsfw = this.settings.get("nsfw", false)
-        const blacklistedTags = this.settings.get("blacklistedTags", "")
+        var plugin = this
         powercord.api.settings.registerSettings("e621", {
             category: this.entityID,
             label: "e621",
@@ -26,6 +24,9 @@ module.exports = class e621 extends Plugin {
                     )}\``,
                   }
                 }
+                var userAgent = plugin.settings.get("headers", "Powercord/1.0 (<e621username>)")
+                var nsfw = plugin.settings.get("nsfw", false)
+                var blacklistedTags = plugin.settings.get("blacklistedTags", "")
                 if (userAgent === "Powercord/1.0 (<e621username>)") {
                     return {
                         send: false,
@@ -41,7 +42,7 @@ module.exports = class e621 extends Plugin {
                 } 
                 const post = p.posts[0]
                 async function getPost(tags) {
-                    nsfw ? tags.push("rating:s") : {}
+                    nsfw ? {} : tags.push("rating:s")
                     return await get(`https://${nsfw ? "e621" : "e926"}.net/posts.json?tags=${tags.join('%20')}`)
                     .set("User-Agent", userAgent)
                     .then(r => {return r.body})
