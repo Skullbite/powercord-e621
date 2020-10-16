@@ -58,7 +58,7 @@ module.exports = class e621 extends Plugin {
                 } */
                 
                 // let send = `\`\`\`diff\nRequest Debug\n- Blacklisted Tags Applied: ${blTags.length}\n- NSFW? On\n- Extra Tags: \`\`\`\n`
-                let send = `> **Post ID:** ${post.id}\n> **Rating:** ${post.rating.replace("e", "Explicit").replace("q", "Questionable").replace("s", "Safe")}\n> **Post URL:** <https://${nsfw ? "e621" : "e926"}.net/posts/${post.id}>\n> **Image:** ${post.file.url}\n> **Score:** ${post.score.total}`
+                let send = `> **Post ID:** ${post.id}\n> **Rating:** ${post.rating.replace("e", "Explicit").replace("s", "Safe").replace("q", "Questionable")}\n> **Post URL:** <https://${nsfw ? "e621" : "e926"}.net/posts/${post.id}>\n> **Image:** ${post.file.url}\n> **Score:** ${post.score.total}`
                 
                 return {
                     send: false,
