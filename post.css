@@ -1,0 +1,21 @@
+#e6Preview {
+    height: auto;
+    width: 50%;
+    border-radius: 20px;
+    float: right;
+    padding: 2%;
+}
+.buttonDiv {
+    float: left;
+    display: flex;
+    padding: 10px;
+}
+.info {
+    padding: 18px;
+    display: flex;
+}
+
+#card {
+    padding: 18px;
+    float: left;
+}

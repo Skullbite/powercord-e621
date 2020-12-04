@@ -25,7 +25,7 @@ module.exports = class Settings extends React.PureComponent {
             onChange={v => updateSetting("headers", v)}>
                 E621 User Agent
             </TextInput>
-            {/* <TextInput
+            <TextInput
             note="Put tags you don't want to see here, seperate them with a space. Don't worry about adding the - at the beginning."
             defaultValue={getSetting("blacklistedTags", "young feral")}>
                 Blacklisted Tags
@@ -39,12 +39,27 @@ module.exports = class Settings extends React.PureComponent {
             <RadioGroup
             options={[
                 { name: "Off", value: "off" },
-                { name: "Get posts in a random order.", value: "order:random" },
-                { name: "Get the highest scored post.", value: "order:score" }
+                { name: "Get posts in a random order. (order:random)", value: "order:random" },
+                { name: "Get the highest scored post. (order:score)", value: "order:score" }
             ]}
-            onChange={o => {updateSetting("sortingTag", o.value)}}
+            onChange={o => updateSetting("sortingTag", o.value)}
             value={getSetting("sortingTag", "off")}>
-        </RadioGroup> */}
+            </RadioGroup>
+            <FormItem
+            title="Sending Method">
+                <FormText type="description">
+                A few ways you can view your post. Embed and Message cannot preview files.
+                </FormText>
+            </FormItem>
+            <RadioGroup
+            options={[
+                { name: "Modal (Recommended)", value: "modal" },
+                { name: "Embed", value: "embed" },
+                { name: "Message", value: "message" }
+            ]}
+            onChange={o => updateSetting("sendMethod", o.value)}
+            value={getSetting("sendMethod", "modal")}>
+            </RadioGroup>
 
         </div>)
     }
