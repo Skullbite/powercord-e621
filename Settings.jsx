@@ -27,7 +27,8 @@ module.exports = class Settings extends React.PureComponent {
             </TextInput>
             <TextInput
             note="Put tags you don't want to see here, seperate them with a space. Don't worry about adding the - at the beginning."
-            defaultValue={getSetting("blacklistedTags", "young feral")}>
+            defaultValue={getSetting("blacklistedTags", "young feral")}
+            onChange={v => updateSetting("blacklistedTags", v)}>
                 Blacklisted Tags
             </TextInput>
             <FormItem
