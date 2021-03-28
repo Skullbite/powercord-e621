@@ -3,5 +3,6 @@
     "version": "1.0.0", 
     "description": "Get cool furry pictures in your desksword",
     "author": "Skullbite#5245",
-    "license": "MIT"
+    "license": "MIT",
+    "permissions": "ext_api"
 }
